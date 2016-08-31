@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find tams_turtlebot_bringup)/launch/robot.launch" />
+
+  <!-- Docking (start with kubuki_auto_docking servise activate) -->
+  <include file="$(find kobuki_auto_docking)/launch/minimal.launch" />
+
+  <include file="$(find tams_turtlebot_bringup)/launch/navigation.launch" />
+
+</launch>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="laser" default="$(env TURTLEBOT_LASER)" doc="laser sensor types [hokuyo_30lx, hokuyo_04lx]"/>
+
+  <!-- robot description tams specific -->
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find tams_turtlebot_description)/robots/kobuki_hexagons_kinect_$(arg laser).urdf.xacro'" />
+  <param name="robot_description" command="$(arg urdf_file)" />
+  
+  <!-- kobuki base -->
+  <include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
+    <arg name="base" value="kobuki" />
+    <arg name="serialport" value="/dev/kobuki" />
+  </include>
+
+  <!-- sensors -->
+  <include file="$(find tams_turtlebot_bringup)/launch/sensors.launch" />
+
+  <!-- misc -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="5.0" />
+  </node>
+
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+    <rosparam command="load" file="$(find turtlebot_bringup)/param/$(env TURTLEBOT_BASE)/diagnostics.yaml" />
+  </node>
+
+  <!-- battery monitor -->
+  <include file="$(find turtlebot_bringup)/launch/includes/netbook.launch.xml">
+    <arg name="battery" value="$(env TURTLEBOT_BATTERY)" />
+  </include>
+
+  <include file="$(find tams_turtlebot_bringup)/launch/capabilities.launch" />
+
+</launch>

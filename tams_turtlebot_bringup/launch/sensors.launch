@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- kinect -->
+  <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
+    <arg name="rgb_processing" value="false" />
+    <arg name="depth_registration" value="false" />
+    <arg name="depth_processing" value="false" />
+
+    <arg name="3d_sensor" value="kinect" />
+    <arg name="scan_topic" value="kinect_scan" />
+  </include>
+
+  <!-- Laser -->
+  <node name="hokuyo_laser" pkg="hokuyo_node" type="hokuyo_node">
+    <param name="calibrate_time" type="bool" value="true"/>
+    <param name="intensity" type="bool" value="false"/>
+    <param name="frame_id" value="/laser_link" />
+    <param name="max_ang" type="double" value="2.356194437" />
+    <param name="min_ang" type="double" value="-2.35619443" />
+    <param name="cluster" value="1"/>
+    <remap from="scan" to="laser_scan" />
+  </node>
+
+  <node name="relay_laser" pkg="topic_tools" type="relay" args="laser_scan scan" />
+  <node name="relay_kinect" pkg="topic_tools" type="relay" args="kinect_scan scan" />
+
+</launch>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>tams_turtlebot</name>
+  <version>0.0.0</version>
+  <description>The tams_turtlebot package</description>
+
+  <maintainer email="demo@todo.todo">demo</maintainer>
+  <author email="5jonetzk@informatik.uni-hamburg.de">Yannick Jonetzko</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>tams_turtlebot_bringup</run_depend>
+  <run_depend>tams_turtlebot_description</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
