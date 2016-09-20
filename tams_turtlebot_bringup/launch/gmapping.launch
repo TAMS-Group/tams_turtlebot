@@ -1,21 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 
-  <include file="$(find tams_turtlebot_bringup)/launch/minimal.launch" />
+  <include file="$(find tams_turtlebot_bringup)/launch/robot.launch" />
 
-  <!-- Laser -->
-  <node name="hokuyo_laser" pkg="hokuyo_node" type="hokuyo_node">
-    <param name="calibrate_time" type="bool" value="true"/>
-    <param name="intensity" type="bool" value="false"/>
-    <param name="frame_id" value="/laser_link" />
-    <param name="max_ang" type="double" value="2.356194437" />
-    <param name="min_ang" type="double" value="-2.35619443" />
-    <param name="cluster" value="1"/>
-    <remap from="scan" to="laser_scan" />
-  </node>
+<!-- Gmapping -->
+  <include file="$(find turtlebot_navigation)/launch/includes/gmapping/gmapping.launch.xml"/>
 
-  <node name="relay_laser" pkg="topic_tools" type="relay" args="laser_scan scan" />
-
-  <include file="$(find turtlebot_navigation)/launch/gmapping_demo.launch" />
+  <!-- Move base -->
+  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
 
 </launch>
