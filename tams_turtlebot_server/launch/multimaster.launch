@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <node name="$(anon master_discovery)" pkg="master_discovery_fkie" type="master_discovery" output="log">
-        <rosparam param="robot_hosts">[donny,mikey,leo,192.168.104.104,raph,tams50,tams51,tams52,tams53,tams54,tams43]</rosparam>
+        <rosparam param="robot_hosts">[donny,mikey,leo,raph,tams50,tams51,tams52,tams53,tams54,tams43]</rosparam>
     </node>
 
     <node name="$(anon master_sync)" pkg="master_sync_fkie" type="master_sync">
