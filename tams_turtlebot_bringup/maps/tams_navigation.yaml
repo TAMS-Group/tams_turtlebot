@@ -1,4 +1,4 @@
-image: tams.pgm
+image: tams_navigation.pgm
 resolution: 0.050000
 origin: [-13.100000, -15.910000, 0.000000]
 negate: 0

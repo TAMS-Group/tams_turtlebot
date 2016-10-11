@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <launch>
 
-  <!-- Map strver -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find tams_turtlebot_bringup)/maps/tams.yaml" />
+  <!-- map server -->
+  <node name="map_localization" pkg="map_server" type="map_server" args="$(find tams_turtlebot_bringup)/maps/tams_localization.yaml" />
+  <node name="map_navigation" pkg="map_server" type="map_server" args="$(find tams_turtlebot_bringup)/maps/tams_navigation.yaml" >
+    <remap from="map" to="map_navigation"/>
+  </node>
 
   <!-- amcl -->
   <arg name="initial_pose_x" default="$(env TURTLEBOT_HOME_POSE_X)"/>
@@ -15,8 +18,11 @@
   </include>
 
   <arg name="custom_param_file" default="$(find turtlebot_navigation)/param/dummy.yaml"/>
-  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
-    <arg name="custom_param_file" value="$(arg custom_param_file)"/>
-  </include>
+  <group>
+    <remap from="map" to="map_navigation"/>
+    <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
+      <arg name="custom_param_file" value="$(arg custom_param_file)"/>
+    </include>
+  </group>
 
 </launch>
