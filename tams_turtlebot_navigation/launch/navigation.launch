@@ -2,8 +2,10 @@
 <launch>
 
   <!-- map server -->
-  <node name="map_localization" pkg="map_server" type="map_server" args="$(find tams_turtlebot_bringup)/maps/tams_localization.yaml" />
-  <node name="map_navigation" pkg="map_server" type="map_server" args="$(find tams_turtlebot_bringup)/maps/tams_navigation.yaml" >
+  <arg name="map" default=""/>
+  <arg name="map_navigation" default="$(arg map)" />
+  <node name="map_localization" pkg="map_server" type="map_server" args="$(arg map)" />
+  <node name="map_navigation" pkg="map_server" type="map_server" args="$(arg map_navigation)" >
     <remap from="map" to="map_navigation"/>
   </node>
 
@@ -17,11 +19,10 @@
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
   </include>
 
-  <arg name="custom_param_file" default="$(find turtlebot_navigation)/param/dummy.yaml"/>
   <group>
     <remap from="map" to="map_navigation"/>
     <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
-      <arg name="custom_param_file" value="$(arg custom_param_file)"/>
+      <arg name="custom_param_file" value="$(find tams_turtlebot_navigation)/config/laserscan.yaml"/>
     </include>
   </group>
 

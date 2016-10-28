@@ -1,17 +1,15 @@
 <?xml version="1.0"?>
 <launch>
 
-  <include file="$(find tams_turtlebot_bringup)/launch/robot.launch" />
-
-  <!-- Docking (start with kubuki_auto_docking servise activate) -->
-  <include file="$(find kobuki_auto_docking)/launch/minimal.launch" />
-
   <arg name="initial_pose_x" default="$(env TURTLEBOT_HOME_POSE_X)"/>
   <arg name="initial_pose_y" default="$(env TURTLEBOT_HOME_POSE_Y)"/>
   <arg name="initial_pose_a" default="$(env TURTLEBOT_HOME_POSE_A)"/>
-  <include file="$(find tams_turtlebot_navigation)/launch/navigation_with_map.launch">
+  <include file="$(find tams_turtlebot_navigation)/launch/navigation.launch">
+    <arg name="map" value="$(find tams_turtlebot_navigation)/maps/tams_localization.yaml" />
+    <arg name="map_navigation" value="$(find tams_turtlebot_navigation)/maps/tams_navigation.yaml" />
     <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
     <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
   </include>
+ 
 </launch>

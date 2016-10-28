@@ -1,0 +1,41 @@
+global_costmap:
+  obstacle_layer:
+    enable: true
+    observation_sources: kinect_scan laserscan bump
+    laserscan:
+        data_type: LaserScan
+        topic: laser_scan
+        marking: true
+        clearing: true
+        min_obstacle_height: 0.30
+        max_obstacle_height: 0.41
+    #renamed kinect source from scan to kinect_scan
+    kinect_scan:
+      data_type: LaserScan
+      topic: kinect_scan
+      marking: true
+      clearing: true
+      min_obstacle_height: 0.25
+      max_obstacle_height: 0.35
+
+
+local_costmap:
+  obstacle_layer:
+    enable: true
+    observation_sources: kinect_scan laserscan bump
+    laserscan:
+        data_type: LaserScan
+        topic: laser_scan
+        marking: true
+        clearing: true
+        min_obstacle_height: 0.30
+        max_obstacle_height: 0.41
+    #renamed kinect source from scan to kinect_scan
+    kinect_scan:
+      data_type: LaserScan
+      topic: kinect_scan
+      marking: true
+      clearing: true
+      min_obstacle_height: 0.25
+      max_obstacle_height: 0.35
+
