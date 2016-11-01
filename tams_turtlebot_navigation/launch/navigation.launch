@@ -2,7 +2,7 @@
 <launch>
 
   <!-- map server -->
-  <arg name="map" default=""/>
+  <arg name="map"/>
   <arg name="map_navigation" default="$(arg map)" />
   <node name="map_localization" pkg="map_server" type="map_server" args="$(arg map)" />
   <node name="map_navigation" pkg="map_server" type="map_server" args="$(arg map_navigation)" >
