@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <launch>
 
-  <include file="$(find tams_turtlebot_bringup)/launch/robot.launch" />
+  <include file="$(find tams_turtlebot_bringup)/launch/tams_turtlebot.launch" />
 
 <!-- Gmapping -->
-  <include file="$(find turtlebot_navigation)/launch/includes/gmapping/gmapping.launch.xml"/>
+  <include file="$(find turtlebot_navigation)/launch/includes/gmapping.launch.xml"/>
 
   <!-- Move base -->
   <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
