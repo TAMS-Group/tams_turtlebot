@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <group ns="$(env TURTLEBOT_NAME)">
-    <include file="$(find tams_turtlebot_bringup)/launch/tams_turtlebot.launch" />
+    <include file="$(find tams_turtlebot_bringup)/launch/tams_turtlebot_navigation.launch" />
   </group>
 
     <node name="multimaster" pkg="master_discovery_fkie" type="master_discovery" />
