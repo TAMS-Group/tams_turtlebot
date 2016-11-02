@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
-
-  <!-- map server -->
   <arg name="map"/>
   <arg name="map_navigation" default="$(arg map)" />
+
+  <!-- map_server -->
   <node name="map_localization" pkg="map_server" type="map_server" args="$(arg map)" />
   <node name="map_navigation" pkg="map_server" type="map_server" args="$(arg map_navigation)" >
     <remap from="map" to="map_navigation"/>
@@ -19,6 +19,7 @@
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
   </include>
 
+  <!-- move_base -->
   <group>
     <remap from="map" to="map_navigation"/>
     <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
