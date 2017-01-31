@@ -19,6 +19,7 @@
     <param name="max_ang" type="double" value="2.356194437" />
     <param name="min_ang" type="double" value="-2.35619443" />
     <param name="cluster" value="1"/>
+    <param name="port" value="/dev/laser" />
     <remap from="scan" to="laser_scan" />
   </node>
 
