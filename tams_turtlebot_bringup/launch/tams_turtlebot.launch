@@ -33,6 +33,8 @@
     <arg name="battery" value="$(env TURTLEBOT_BATTERY)" />
   </include>
 
+<!--
   <include file="$(find tams_turtlebot_bringup)/launch/capabilities.launch" />
+-->
 
 </launch>

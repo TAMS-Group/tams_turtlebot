@@ -7,12 +7,8 @@
 -->    
 <robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_library.urdf.xacro" />
+  <xacro:include filename="$(find turtlebot_description)/robots/kobuki_hexagons_kinect.urdf.xacro" />
   <xacro:include filename="$(find tams_turtlebot_description)/urdf/sensors/hokuyo_30lx.urdf.xacro" />
   
-  <kobuki/>
-  <stack_hexagons parent="base_link"/>
-  <sensor_kinect  parent="base_link"/>
-  <!--<hokuyo_30lx    name="laser" parent="base" ros_topic="/scan" update_rate="20" min_angle="-1.57" max_angle="1.57" />-->
   <hokuyo_30lx    parent="base_link"/>
 </robot>
