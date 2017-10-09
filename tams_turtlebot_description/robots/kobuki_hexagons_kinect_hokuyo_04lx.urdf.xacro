@@ -7,11 +7,8 @@
 -->    
 <robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_library.urdf.xacro" /> 
+  <xacro:include filename="$(find turtlebot_description)/robots/kobuki_hexagons_kinect.urdf.xacro" />
   <xacro:include filename="$(find tams_turtlebot_description)/urdf/sensors/hokuyo_04lx.urdf.xacro" /> 
  
-  <kobuki/>
-  <stack_hexagons parent="base_link"/>
-  <sensor_kinect  parent="base_link"/>
   <hokuyo_04lx    parent="base_link"/>
 </robot>
