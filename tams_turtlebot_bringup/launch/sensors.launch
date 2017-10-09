@@ -11,14 +11,14 @@
     <arg name="scan_topic" value="kinect_scan" />
   </include>
 
-  <!-- Laser -->
-  <node name="hokuyo_laser" pkg="hokuyo_node" type="hokuyo_node">
-    <param name="calibrate_time" type="bool" value="true"/>
-    <param name="intensity" type="bool" value="false"/>
+  <!-- laser -->
+  <node name="hokuyo_laser" pkg="urg_node" type="urg_node">
+    <param name="calibrate_time" type="bool" value="true" />
+    <param name="intensity" type="bool" value="false" />
     <param name="frame_id" value="/laser_link" />
     <param name="max_ang" type="double" value="2.356194437" />
     <param name="min_ang" type="double" value="-2.35619443" />
-    <param name="cluster" value="1"/>
+    <param name="cluster" value="1" />
     <param name="port" value="/dev/laser" />
     <remap from="scan" to="laser_scan" />
   </node>
