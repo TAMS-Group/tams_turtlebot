@@ -34,7 +34,7 @@
     <remap from="scan" to="laser_scan" />
   </node>
 
-  <include file="$(find turlebot_bringup)/launch/laser_filter.launch"/>
+  <include file="$(find tams_turtlebot_bringup)/launch/laser_filter.launch"/>
   <node name="relay_laser" pkg="topic_tools" type="relay" args="laser_scan_filtered scan" />
   <node name="relay_kinect" pkg="topic_tools" type="relay" args="kinect_scan scan" />
 
