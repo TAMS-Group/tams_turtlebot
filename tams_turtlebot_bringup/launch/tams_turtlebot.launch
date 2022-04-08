@@ -4,7 +4,7 @@
   <arg name="laser" default="$(env TURTLEBOT_LASER)" doc="laser sensor types [hokuyo_30lx, hokuyo_04lx]"/>
 
   <!-- robot description tams specific -->
-  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find tams_turtlebot_description)/robots/$(env TURTLEBOT_BASE)_$(env TURTLEBOT_STACKS)_$(env TURTLEBOT_3D_SENSOR)_$(env TURTLEBOT_LASER).urdf.xacro'" />
+  <arg name="urdf_file" default="$(find xacro)/xacro '$(find tams_turtlebot_description)/robots/$(env TURTLEBOT_BASE)_$(env TURTLEBOT_STACKS)_$(env TURTLEBOT_3D_SENSOR)_$(env TURTLEBOT_LASER).urdf.xacro'" />
   <param name="robot_description" command="$(arg urdf_file)" />
 
   <!-- kobuki base -->
